@@ -9,7 +9,6 @@
 	url="jdbc:oracle:thin:@dm_high?TNS_ADMIN=J:/Wallet_DM"
 	driver="oracle.jdbc.driver.OracleDriver" user="ADMIN"
 	password="Abcd1234567890!@" />
- 
 <sql:query
 	sql="select champ_id, champ_name, champ_name_kr
 		from champ_basic_info
@@ -78,7 +77,7 @@ a {
 		<nav>
 		<div id="allchamplist">
 			<c:forEach items="${ch.rows}" var="champ">
-				<li><a href="/controller/board?champid=${champ['champ_id']}">
+				<li><a href="/controller/board/chamDetail?chamId=${champ['champ_id']}">
 						<img src="${pageContext.request.contextPath}/resources/img/champThumbnail/${champ['CHAMP_NAME']}.png" />
 						<span align="center">${champ['CHAMP_NAME_KR']}</span>
 				</a></li>

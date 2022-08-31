@@ -29,7 +29,6 @@ public class BoardController {
 		model.addAttribute("list", list);
 	}
 	
-<<<<<<< HEAD
 	@RequestMapping(value = "/chamDetail", method = RequestMethod.GET)
 	public void chamDetail(Locale locale, Model model, HttpServletRequest req) throws Exception {
 		System.out.println(req.getParameter("chamId"));
@@ -40,12 +39,12 @@ public class BoardController {
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index(Locale locale, Model model) throws Exception {
 		return "index";
-=======
+	}
+		
 	@RequestMapping(value = "/champ", method = RequestMethod.GET)
 	public void list2(Locale locale, Model model) throws Exception {
 		List champ = service.champ();
 		model.addAttribute("champ", champ);
->>>>>>> 62708ebd023695375e91172672fa667044a997c7
 	}
 	
 }
