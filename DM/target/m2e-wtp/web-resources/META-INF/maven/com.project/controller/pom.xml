@@ -207,7 +207,7 @@
 			<artifactId>osdt_core</artifactId>
 			<version>21.6.0.0.1</version>
 		</dependency>
-		
+
 		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>

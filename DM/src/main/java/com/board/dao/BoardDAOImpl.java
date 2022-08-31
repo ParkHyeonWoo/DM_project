@@ -14,7 +14,7 @@ public class BoardDAOImpl implements BoardDAO {
 	@Autowired
 	public BoardDAOImpl(SqlSession sqlSession) {
 		this.sqlSession=sqlSession;
-		System.out.println("MemberDao SqlSession On -> " + this.sqlSession);
+		System.out.println("BoardDAO SqlSession On -> " + this.sqlSession);
 	}
 
 	private static String namespace = "com.board.mappers.board";
@@ -22,6 +22,11 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public List list() throws Exception {
 		return sqlSession.selectList(namespace + ".list");
+	}
+	
+	@Override
+	public List list(String req) throws Exception {
+		return sqlSession.selectList(namespace + ".chamDetail", req);
 	}
 
 }

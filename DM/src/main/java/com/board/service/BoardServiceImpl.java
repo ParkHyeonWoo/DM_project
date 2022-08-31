@@ -16,5 +16,10 @@ public class BoardServiceImpl implements BoardService {
 	public List list() throws Exception {
 		return dao.list();
 	}
+	
+	@Override
+	public List list(String req) throws Exception {
+		return dao.list(req);
+	}
 
 }

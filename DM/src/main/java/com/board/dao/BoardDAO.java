@@ -8,4 +8,6 @@ public interface BoardDAO {
 
 	public List list() throws Exception;
 
+	public List list(String req) throws Exception;
+
 }

@@ -9,4 +9,21 @@
 		from
 			runes_info
 	</select>
+	<select id="chamDetail" resultType="com.board.domain.ChamDetailDTO">
+		select
+			championid, championname, championkrname, lane, win_rate, pick_rate, ban_rate
+		from (
+			select
+				championid, championname, championkrname, lane, win_rate, pick_rate, ban_rate
+			from
+				test_champ_info
+			where
+				championid = #{req}
+			order by 
+				pick_rate
+			desc
+		)
+		<![CDATA[where rownum <= 2]]> 
+			
+	</select>
 </mapper>

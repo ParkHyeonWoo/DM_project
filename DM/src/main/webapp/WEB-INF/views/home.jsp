@@ -12,5 +12,6 @@
 
 <P>  The time on the server is ${serverTime}. </P>
 <a href="/controller/board/list">게시판</a>
+<a href="/controller/board/chamDetail?chamId=777">챔피언 정보</a>
 </body>
 </html>
