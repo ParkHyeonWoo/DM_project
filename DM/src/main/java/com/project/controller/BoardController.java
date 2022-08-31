@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,5 +28,17 @@ public class BoardController {
 		List list = service.list();
 		model.addAttribute("list", list);
 	}
-
+	
+	@RequestMapping(value = "/chamDetail", method = RequestMethod.GET)
+	public void chamDetail(Locale locale, Model model, HttpServletRequest req) throws Exception {
+		System.out.println(req.getParameter("chamId"));
+		List list = service.list(req.getParameter("chamId"));
+		model.addAttribute("list", list);
+	}
+	
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String index(Locale locale, Model model) throws Exception {
+		return "index";
+	}
+	
 }
