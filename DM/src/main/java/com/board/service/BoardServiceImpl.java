@@ -22,4 +22,9 @@ public class BoardServiceImpl implements BoardService {
 		return dao.list(req);
 	}
 
+	@Override
+	public List champ() throws Exception {
+		return dao.champ();
+	}
+
 }

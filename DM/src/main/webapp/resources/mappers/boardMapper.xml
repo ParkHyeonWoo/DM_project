@@ -5,9 +5,14 @@
 <mapper namespace="com.board.mappers.board">
 	<select id="list" resultType="com.board.domain.BoardDTO">
 		select
-			rune_id, rune_name, rune_name_kr, rune_desc
+		rune_id, rune_name, rune_name_kr, rune_desc
 		from
-			runes_info
+		runes_info
+	</select>
+
+	<select id="champ" resultType="com.board.domain.MainDTO">
+		select champ_id, champ_name, champ_name_kr
+		from champ_basic_info
 	</select>
 	<select id="chamDetail" resultType="com.board.domain.ChamDetailDTO">
 		select
