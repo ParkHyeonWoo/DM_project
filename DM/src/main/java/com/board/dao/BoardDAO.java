@@ -8,4 +8,5 @@ public interface BoardDAO {
 
 	public List list() throws Exception;
 
+	public List champ() throws Exception;;
 }

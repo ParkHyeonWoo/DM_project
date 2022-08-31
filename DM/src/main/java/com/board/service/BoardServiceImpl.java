@@ -17,4 +17,9 @@ public class BoardServiceImpl implements BoardService {
 		return dao.list();
 	}
 
+	@Override
+	public List champ() throws Exception {
+		return dao.champ();
+	}
+
 }

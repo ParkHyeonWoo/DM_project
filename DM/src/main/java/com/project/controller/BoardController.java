@@ -27,5 +27,11 @@ public class BoardController {
 		List list = service.list();
 		model.addAttribute("list", list);
 	}
-
+	
+	@RequestMapping(value = "/champ", method = RequestMethod.GET)
+	public void list2(Locale locale, Model model) throws Exception {
+		List champ = service.champ();
+		model.addAttribute("champ", champ);
+	}
+	
 }

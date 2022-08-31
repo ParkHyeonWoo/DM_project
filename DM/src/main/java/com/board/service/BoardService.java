@@ -4,4 +4,6 @@ import java.util.List;
 
 public interface BoardService {
 	public List list() throws Exception;
+
+	public List champ() throws Exception;;
 }
