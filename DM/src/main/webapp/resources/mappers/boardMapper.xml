@@ -53,4 +53,6 @@
 		where
 			rune_id = #{req}
 	</select>
+	
+
 </mapper>
