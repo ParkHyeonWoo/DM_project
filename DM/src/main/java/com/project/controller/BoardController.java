@@ -1,5 +1,6 @@
 package com.project.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
@@ -23,17 +24,28 @@ public class BoardController {
 	@Inject
 	private BoardService service;
 
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public void list(Locale locale, Model model) throws Exception {
-		List list = service.list();
-		model.addAttribute("list", list);
-	}
-	
 	@RequestMapping(value = "/chamDetail", method = RequestMethod.GET)
 	public void chamDetail(Locale locale, Model model, HttpServletRequest req) throws Exception {
 		System.out.println(req.getParameter("chamId"));
-		List list = service.list(req.getParameter("chamId"));
-		model.addAttribute("list", list);
+		List list = service.chamDetail(req.getParameter("chamId"));
+		model.addAttribute("chamDetail", list);
+	}
+	
+	@RequestMapping(value = "/runes", method = RequestMethod.GET)
+	public void runes(Locale locale, Model model, HttpServletRequest req) throws Exception {
+		System.out.printf(req.getParameter("chamId"), req.getParameter("lane"));
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("chamId", req.getParameter("chamId"));
+		map.put("lane", req.getParameter("lane"));
+		List list = service.runes(map);
+		model.addAttribute("runes", list);
+	}
+	
+	@RequestMapping(value = "/runeInfo", method = RequestMethod.GET)
+	public void runeInfo(Locale locale, Model model, HttpServletRequest req) throws Exception {
+		System.out.println(req.getParameter("runeId"));
+		List runeInfo = service.runeInfo(req.getParameter("runeId"));
+		model.addAttribute("runeInfo", runeInfo);
 	}
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)

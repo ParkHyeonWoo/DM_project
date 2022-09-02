@@ -1,5 +1,6 @@
 package com.board.dao;
 
+import java.util.HashMap;
 import java.util.List;
 //import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
@@ -18,17 +19,22 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	private static String namespace = "com.board.mappers.board";
-
+	
 	@Override
-	public List list() throws Exception {
-		return sqlSession.selectList(namespace + ".list");
+	public List chamDetail(String req) throws Exception {
+		return sqlSession.selectList(namespace + ".chamDetail", req);
 	}
 	
 	@Override
-	public List list(String req) throws Exception {
-		return sqlSession.selectList(namespace + ".chamDetail", req);
+	public List runes(HashMap<String, Object> map) throws Exception {
+		return sqlSession.selectList(namespace + ".runes", map);
 	}
-
+	
+	@Override
+	public List runeInfo(String req) throws Exception {
+		return sqlSession.selectList(namespace + ".runeInfo", req);
+	}
+	
 	@Override
 	public List champ() throws Exception {
 		return sqlSession.selectList(namespace + ".champ");

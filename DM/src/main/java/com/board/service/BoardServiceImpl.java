@@ -1,10 +1,10 @@
 package com.board.service;
 
+import java.util.HashMap;
 import java.util.List;
 import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 import com.board.dao.BoardDAO;
-import com.board.domain.BoardDTO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -13,13 +13,18 @@ public class BoardServiceImpl implements BoardService {
 	private BoardDAO dao;
 
 	@Override
-	public List list() throws Exception {
-		return dao.list();
+	public List chamDetail(String req) throws Exception {
+		return dao.chamDetail(req);
 	}
 	
 	@Override
-	public List list(String req) throws Exception {
-		return dao.list(req);
+	public List runes(HashMap<String, Object> map) throws Exception {
+		return dao.runes(map);
+	}
+	
+	@Override
+	public List runeInfo(String req) throws Exception {
+		return dao.runeInfo(req);
 	}
 
 	@Override
