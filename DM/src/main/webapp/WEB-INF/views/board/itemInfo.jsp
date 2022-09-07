@@ -9,7 +9,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./index.css" />
-	<title>runeInfo.jsp</title>
+	<title>itemInfo.jsp</title>
 	<style type="text/css">
 	span {
 	  display: flex;
@@ -53,12 +53,12 @@
 	</style>
 </head>
 <body>
-	<c:forEach items="${runeInfo}" var="runeInfo">
+	<c:forEach items="${itemInfo}" var="itemInfo">
 		<div>
-			<span>"${runeInfo.rune_id}"</span>
+			<span>"${itemInfo.item_id}"</span>
 			<p class="arrow_box">
-				"${runeInfo.rune_name_kr}"<br><br>
-				"${runeInfo.rune_desc}"<br>
+				"${itemInfo.item_name}"<br><br>
+				"${itemInfo.item_desc}"<br>
 			</p>
 		</div>
 	</c:forEach>

@@ -147,7 +147,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>5.3.19</version>
+			<version>3.0.5.RELEASE</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
@@ -224,17 +224,6 @@
 
 	<build>
 		<plugins>
-			 <plugin>
-	                	<groupId>org.apache.maven.plugins</groupId>
-	                	<artifactId>maven-war-plugin</artifactId>
-	                	<version>2.4</version>
-	                	<configuration>
-	                		<warSourceDirectory>src/main/webapp</warSourceDirectory>
-							<warName>sample</warName>
-	
-	                		<failOnMissingWebXml>false</failOnMissingWebXml>
-	                	</configuration>
-	                </plugin>
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<version>2.9</version>

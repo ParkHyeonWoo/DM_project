@@ -1,13 +1,12 @@
 package com.board.domain;
 
-public class ChamDetailDTO {
+public class SpellsDTO {
 	private int championId;
-	private String championName;
-	private String championKrName;
 	private String lane;
+	private int spell_1;
+	private int spell_2;
 	private double win_rate;
 	private double pick_rate;
-	private double ban_rate;
 	
 	public int getChampionId() {
 		return championId;
@@ -15,23 +14,23 @@ public class ChamDetailDTO {
 	public void setChampionId(int championId) {
 		this.championId = championId;
 	}
-	public String getChampionName() {
-		return championName;
-	}
-	public void setChampionName(String championName) {
-		this.championName = championName;
-	}
-	public String getChampionKrName() {
-		return championKrName;
-	}
-	public void setChampionKrName(String championKrName) {
-		this.championKrName = championKrName;
-	}
 	public String getLane() {
 		return lane;
 	}
 	public void setLane(String lane) {
 		this.lane = lane;
+	}
+	public int getSpell_1() {
+		return spell_1;
+	}
+	public void setSpell_1(int spell_1) {
+		this.spell_1 = spell_1;
+	}
+	public int getSpell_2() {
+		return spell_2;
+	}
+	public void setSpell_2(int spell_2) {
+		this.spell_2 = spell_2;
 	}
 	public double getWin_rate() {
 		return win_rate;
@@ -45,11 +44,5 @@ public class ChamDetailDTO {
 	public void setPick_rate(double pick_rate) {
 		this.pick_rate = pick_rate;
 	}
-	public double getBan_rate() {
-		return ban_rate;
-	}
-	public void setBan_rate(double ban_rate) {
-		this.ban_rate = ban_rate;
-	}
-	
+
 }

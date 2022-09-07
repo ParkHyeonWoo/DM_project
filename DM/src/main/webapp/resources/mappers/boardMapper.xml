@@ -24,7 +24,7 @@
 				pick_rate
 			desc
 		)
-		<![CDATA[where rownum <= 2]]> 		
+		<![CDATA[where rownum <= 2]]>	
 	</select>
 	
 	<select id="runes" resultType="com.board.domain.RunesDTO">
@@ -41,7 +41,7 @@
 				pick_rate 
 			desc
 		) 
-		<![CDATA[where rownum = 1]]>
+		<![CDATA[where rownum <= 3]]>
 			
 	</select>
 	
@@ -54,5 +54,57 @@
 			rune_id = #{req}
 	</select>
 	
-
+	<select id="items" resultType="com.board.domain.ItemsDTO">
+		select 
+			* 
+		from 
+			items 
+		where 
+			championid = #{chamId} and lane = #{lane}
+		order by 
+			core1_pick_rate desc, core2_pick_rate desc, core3_pick_rate desc
+	</select>
+	
+	<select id="itemInfo" resultType="com.board.domain.ItemInfoDTO">
+		select 
+			* 
+		from 
+			items_info 
+		where 
+			item_id = #{req}
+	</select>
+	
+	<select id="counter" resultType="com.board.domain.CounterDTO">
+		select 
+			* 
+		from 
+			counter 
+		where 
+			championid = #{chamId} and lane = #{lane} and  win_rate != 100 and win_rate != 0
+		order by 
+			win_rate 
+		desc
+	</select>
+	
+	<select id="spells" resultType="com.board.domain.SpellsDTO">
+		select 
+			* 
+		from 
+			spells 
+		where 
+			championid = #{chamId} and lane = #{lane} and pick_rate > 0.5 
+		order by 
+			pick_rate 
+		desc
+	</select>
+	
+	<select id="spellInfo" resultType="com.board.domain.SpellInfoDTO">
+		select 
+			* 
+		from 
+			spells_info 
+		where 
+			spell_id = #{req}
+	</select>
+	
 </mapper>

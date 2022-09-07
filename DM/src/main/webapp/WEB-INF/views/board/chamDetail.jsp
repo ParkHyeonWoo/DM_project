@@ -1,4 +1,3 @@
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" %>
@@ -37,10 +36,20 @@
 				</tr>
 				<tr>
 					<td>
+						<c:out value="runes"/>
 						<c:import url="/board/runes?chamId=${chamDetail.championId}&lane=${chamDetail.lane}"/>
 					</td>
 					<td>
-						
+						<c:out value="items"/>
+						<c:import url="/board/items?chamId=${chamDetail.championId}&lane=${chamDetail.lane}"/>
+					</td>
+					<td>
+						<c:out value="counter"/>
+						<c:import url="/board/counter?chamId=${chamDetail.championId}&lane=${chamDetail.lane}"/>
+					</td>
+					<td>
+						<c:out value="spells"/>
+						<c:import url="/board/spells?chamId=${chamDetail.championId}&lane=${chamDetail.lane}"/>
 					</td>
 				</tr>
 			</c:forEach>

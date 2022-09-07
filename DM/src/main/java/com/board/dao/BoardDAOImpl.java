@@ -36,6 +36,31 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 	
 	@Override
+	public List items(HashMap<String, Object> map) throws Exception {
+		return sqlSession.selectList(namespace + ".items", map);
+	}
+	
+	@Override
+	public List itemInfo(String req) throws Exception {
+		return sqlSession.selectList(namespace + ".itemInfo", req);
+	}
+	
+	@Override
+	public List counter(HashMap<String, Object> map) throws Exception {
+		return sqlSession.selectList(namespace + ".counter", map);
+	}
+	
+	@Override
+	public List spells(HashMap<String, Object> map) throws Exception {
+		return sqlSession.selectList(namespace + ".spells", map);
+	}
+	
+	@Override
+	public List spellInfo(String req) throws Exception {
+		return sqlSession.selectList(namespace + ".spellInfo", req);
+	}
+	
+	@Override
 	public List champ() throws Exception {
 		return sqlSession.selectList(namespace + ".champ");
 	}

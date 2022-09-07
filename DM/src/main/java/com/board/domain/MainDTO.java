@@ -1,13 +1,13 @@
 package com.board.domain;
 
 public class MainDTO {
-	int champid;
-	String champEN;
-	String champKR;
-	String champCost;
-	String champStory;
-	String champMain;
-	String champSub;
+	private int champid;
+	private String champEN;
+	private String champKR;
+	private String champCost;
+	private String champStory;
+	private String champMain;
+	private String champSub;
 
 	public int getChampid() {
 		return champid;
