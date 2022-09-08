@@ -60,7 +60,7 @@
 		from 
 			items 
 		where 
-			championid = #{chamId} and lane = #{lane}
+			championid = #{chamId} and lane = #{lane} and core1_pick_rate > 10
 		order by 
 			core1_pick_rate desc, core2_pick_rate desc, core3_pick_rate desc
 	</select>
@@ -105,6 +105,27 @@
 			spells_info 
 		where 
 			spell_id = #{req}
+	</select>
+	
+	<select id="skills" resultType="com.board.domain.SkillsDTO">
+		select 
+			* 
+		from 
+			skills
+		where 
+			championid = #{chamId} and lane = #{lane} and pick_rate > 0.5 
+		order by
+			pick_rate 
+		desc
+	</select>
+	
+	<select id="skillInfo" resultType="com.board.domain.SkillInfoDTO">
+		select 
+			* 
+		from 
+			skills_info 
+		where 
+			champ_id = #{chamId} and skill_classification = #{lane}
 	</select>
 	
 </mapper>

@@ -21,4 +21,8 @@ public interface BoardDAO {
 	public List spells(HashMap<String, Object> map) throws Exception;
 
 	public List spellInfo(String req) throws Exception;
+
+	public List skills(HashMap<String, Object> map) throws Exception;
+
+	public List skillInfo(HashMap<String, Object> map) throws Exception;
 }

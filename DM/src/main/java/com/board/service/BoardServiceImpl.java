@@ -51,6 +51,16 @@ public class BoardServiceImpl implements BoardService {
 	public List spellInfo(String req) throws Exception {
 		return dao.spellInfo(req);
 	}
+	
+	@Override
+	public List skills(HashMap<String, Object> map) throws Exception {
+		return dao.skills(map);
+	}
+	
+	@Override
+	public List skillInfo(HashMap<String, Object> map) throws Exception {
+		return dao.skillInfo(map);
+	}
 
 	@Override
 	public List champ() throws Exception {

@@ -44,7 +44,7 @@ public class BoardController {
 		System.out.println("board end");
 	}
 	
-	@RequestMapping(value = {"/runes", "/items", "/counter", "/spells"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/runes", "/items", "/counter", "/spells", "/skills", "skillInfo"}, method = RequestMethod.GET)
 	public void boardMap(Locale locale, Model model, HttpServletRequest req) throws Exception {
 		String reqUrl = (String)req.getAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE);
 		HashMap<String, Object> map = new HashMap<String, Object>();
@@ -62,6 +62,12 @@ public class BoardController {
 		} else if(reqUrl.equals("/board/spells")) {
 			List spells = service.spells(map);
 			model.addAttribute("spells", spells);
+		} else if(reqUrl.equals("/board/skills")) {
+			List skills = service.skills(map);
+			model.addAttribute("skills", skills);
+		} else if(reqUrl.equals("/board/skillInfo")) {
+			List skillInfo = service.skillInfo(map);
+			model.addAttribute("skillInfo", skillInfo);
 		}
 		System.out.println("boardMap end");
 	}

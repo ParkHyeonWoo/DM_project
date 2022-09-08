@@ -51,6 +51,10 @@
 						<c:out value="spells"/>
 						<c:import url="/board/spells?chamId=${chamDetail.championId}&lane=${chamDetail.lane}"/>
 					</td>
+					<td>
+						<c:out value="skills"/>
+						<c:import url="/board/skills?chamId=${chamDetail.championId}&lane=${chamDetail.lane}"/>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
