@@ -54,5 +54,15 @@
 			rune_id = #{req}
 	</select>
 	
+	
+		<select id="searchChamp" parameterType="map" resultType="map">
+			select champ_id, champ_name_kr, champ_name from champ_basic_info
+			where champ_name_kr LIKE '%'|| #{value} || '%'
+			order by champ_name_kr
+	</select>
 
+	<select id="getChampId"  resultType="com.board.domain.ChampsearchDTO">
+			select champ_id from champ_basic_info
+			where champ_name_kr = '#{champ_name_kr}'
+	</select>
 </mapper>
