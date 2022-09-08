@@ -25,4 +25,6 @@ public interface BoardDAO {
 	public List skills(HashMap<String, Object> map) throws Exception;
 
 	public List skillInfo(HashMap<String, Object> map) throws Exception;
+
+	public List mychampion(String req) throws Exception;
 }

@@ -66,5 +66,9 @@ public class BoardServiceImpl implements BoardService {
 	public List champ() throws Exception {
 		return dao.champ();
 	}
+	@Override
+	public List mychampion(String req) throws Exception {
+		return dao.mychampion(req);
+	}
 
 }

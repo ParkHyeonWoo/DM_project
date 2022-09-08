@@ -127,5 +127,22 @@
 		where 
 			champ_id = #{chamId} and skill_classification = #{lane}
 	</select>
-	
+		<select id="mychampion" resultType="com.board.domain.MychampionDTO"> 
+		select
+			champ_id, champ_name, champ_name_kr, champ_stat_difficult, champ_main_role, champ_story
+		from (
+			select  
+				champ_id, champ_name, champ_name_kr, champ_stat_difficult, champ_main_role, champ_story
+			from 
+				champ_basic_info
+			where 
+				champ_main_role = #{req} 
+			and 
+				<![CDATA[champ_stat_difficult < 7]]>
+			order by  
+				champ_stat_difficult
+			)
+			where 
+			<![CDATA[rownum < 4]]>	
+		</select>
 </mapper>

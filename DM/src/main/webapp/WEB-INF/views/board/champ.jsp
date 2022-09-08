@@ -6,7 +6,7 @@
 
 
 <sql:setDataSource var="ds"
-	url="jdbc:oracle:thin:@dm_high?TNS_ADMIN=C:/Users/user/Desktop/Wallet_DM"
+	url="jdbc:oracle:thin:@dm_high?TNS_ADMIN=C:/Users/kwon/Desktop/Wallet_DM"
 	driver="oracle.jdbc.driver.OracleDriver" user="ADMIN"
 	password="Abcd1234567890!@" />
 <sql:query

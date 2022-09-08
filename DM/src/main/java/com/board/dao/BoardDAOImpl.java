@@ -74,5 +74,9 @@ public class BoardDAOImpl implements BoardDAO {
 	public List champ() throws Exception {
 		return sqlSession.selectList(namespace + ".champ");
 	}
+	@Override
+	public List mychampion(String req) throws Exception {
+		return sqlSession.selectList(namespace + ".mychampion",req);
+	}
 
 }
