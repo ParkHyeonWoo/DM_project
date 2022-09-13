@@ -13,12 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-<<<<<<< HEAD
 import org.springframework.web.servlet.HandlerMapping;
-=======
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
->>>>>>> ww
 
 import com.board.service.BoardService;
 import com.board.service.HomeService;
@@ -32,7 +29,9 @@ public class BoardController {
 
 	@Inject
 	private BoardService service;
-<<<<<<< HEAD
+	
+	@Inject
+	private HomeService homeservice;
 
 	@RequestMapping(value = {"/chamDetail", "/runeInfo", "/itemInfo", "/spellInfo"}, method = RequestMethod.GET)
 	public void board(Locale locale, Model model, HttpServletRequest req) throws Exception {
@@ -51,20 +50,8 @@ public class BoardController {
 			model.addAttribute("spellInfo", spellInfo);
 		}
 		System.out.println("board end");
-=======
-	
-	@Inject
-	private HomeService homeservice;
-	
-	
-	@RequestMapping(value = "/chamDetail", method = RequestMethod.GET)
-	public void chamDetail(Locale locale, Model model, HttpServletRequest req) throws Exception {
-		System.out.println(req.getParameter("chamId"));
-		List list = service.chamDetail(req.getParameter("chamId"));
-		model.addAttribute("chamDetail", list);
->>>>>>> ww
 	}
-	
+		
 	@RequestMapping(value = {"/runes", "/items", "/counter", "/spells", "/skills", "skillInfo"}, method = RequestMethod.GET)
 	public void boardMap(Locale locale, Model model, HttpServletRequest req) throws Exception {
 		String reqUrl = (String)req.getAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE);
@@ -118,7 +105,7 @@ public class BoardController {
 	public @ResponseBody List<Map<String, Object>> getChampId(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		List<Map<String, Object>> champList = homeservice.getChampId();
-		System.out.println("Ã¨ÇÇ¾ð ¸®½ºÆ®: "+ champList);
+		System.out.println("ì±”í”¼ì–¸: "+ champList);
 		
 		
 		return champList;

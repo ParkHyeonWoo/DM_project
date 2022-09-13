@@ -54,7 +54,6 @@
 			rune_id = #{req}
 	</select>
 	
-<<<<<<< HEAD
 	<select id="items" resultType="com.board.domain.ItemsDTO">
 		select 
 			* 
@@ -70,6 +69,7 @@
 		select 
 			* 
 		from 
+
 			items_info 
 		where 
 			item_id = #{req}
@@ -146,7 +146,6 @@
 			where 
 			<![CDATA[rownum < 4]]>	
 		</select>
-=======
 	
 		<select id="searchChamp" parameterType="map" resultType="map">
 			select champ_id, champ_name_kr, champ_name from champ_basic_info
@@ -178,5 +177,4 @@
 	order by PICK_RATE
 	desc
 	</select>
->>>>>>> ww
 </mapper>

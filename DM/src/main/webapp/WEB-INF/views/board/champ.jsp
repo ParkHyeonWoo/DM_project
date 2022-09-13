@@ -4,23 +4,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
-
-<sql:setDataSource var="ds"
-<<<<<<< HEAD
-	url="jdbc:oracle:thin:@dm_high?TNS_ADMIN=C:/Users/kwon/Desktop/Wallet_DM"
-=======
-	url="jdbc:oracle:thin:@dm_high?TNS_ADMIN=C:/oraclexe/app/oracle/instantclient_21_6/network/admin/Wallet_DM"
->>>>>>> ww
-	driver="oracle.jdbc.driver.OracleDriver" user="ADMIN"
-	password="Abcd1234567890!@" />
-<sql:query
-	sql="select champ_id, champ_name, champ_name_kr
-		from champ_basic_info
-		order by champ_name_kr"
-	var="ch" dataSource="${ds}">
-	<%-- 	<sql:param value="84" /> --%>
-</sql:query>
-
 <!DOCTYPE html>
 <html>
 <head>

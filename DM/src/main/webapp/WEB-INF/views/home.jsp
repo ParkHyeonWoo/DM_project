@@ -1,25 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
-<<<<<<< HEAD
-=======
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
->>>>>>> ww
 <html>
 <head>
 	<title>Home</title>
 </head>
-<<<<<<< HEAD
+
 <body>
-<h1>
-	Hello world!  
-</h1>
-=======
 <%@include file="../views/header.jsp"%>
 
 <body class="d-flex flex-column min-vh-100">
@@ -48,15 +41,13 @@
 		
 		</div>
 	</div>
->>>>>>> ww
+
 
 <P>  The time on the server is ${serverTime}. </P>
 <a href="/controller/board/champ">챔피언 목록</a>
 <a href="/controller/board/chamDetail?chamId=777">챔피언 정보</a>
 </body>
 </html>
-<<<<<<< HEAD
-=======
 
 <script>
 
@@ -120,4 +111,3 @@ $('#searchChampHome').autocomplete({
 
 
 </script>
->>>>>>> ww
