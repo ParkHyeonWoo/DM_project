@@ -1,10 +1,10 @@
 package com.board.domain;
 
 public class RuneInfoDTO {
-	private String rune_id;
-	private String rune_name;
-	private String rune_name_kr;
-	private String rune_desc;
+	String rune_id;
+	String rune_name;
+	String rune_name_kr;
+	String rune_desc;
 	
 	public String getRune_id() {
 		return rune_id;

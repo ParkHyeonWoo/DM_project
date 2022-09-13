@@ -1,13 +1,13 @@
 package com.board.domain;
 
 public class ChamDetailDTO {
-	private int championId;
-	private String championName;
-	private String championKrName;
-	private String lane;
-	private double win_rate;
-	private double pick_rate;
-	private double ban_rate;
+	int championId;
+	String championName;
+	String championKrName;
+	String lane;
+	double win_rate;
+	double pick_rate;
+	double ban_rate;
 	
 	public int getChampionId() {
 		return championId;

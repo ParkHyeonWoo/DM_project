@@ -9,20 +9,8 @@ public interface BoardDAO {
 	public List runes(HashMap<String, Object> map) throws Exception;
 	
 	public List runeInfo(String req) throws Exception;
-	
-	public List items(HashMap<String, Object> map) throws Exception;
-	
-	public List itemInfo(String req) throws Exception;
 
-	public List champ() throws Exception;
+	public List champList() throws Exception;
 
-	public List counter(HashMap<String, Object> map) throws Exception;
-
-	public List spells(HashMap<String, Object> map) throws Exception;
-
-	public List spellInfo(String req) throws Exception;
-
-	public List skills(HashMap<String, Object> map) throws Exception;
-
-	public List skillInfo(HashMap<String, Object> map) throws Exception;
+	public List tierList(String req) throws Exception;
 }

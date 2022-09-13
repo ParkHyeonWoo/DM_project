@@ -3,13 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.board.mappers.board">
-	<select id="champ" resultType="com.board.domain.MainDTO">
+	<select id="champList" resultType="com.board.domain.ChampListDTO">
 		select 
 			champ_id, champ_name, champ_name_kr
-		from 
+		from
 			champ_basic_info
+		order by champ_name_kr
 	</select>
-	
 	<select id="chamDetail" resultType="com.board.domain.ChamDetailDTO">
 		select
 			championid, championname, championkrname, lane, win_rate, pick_rate, ban_rate
@@ -24,7 +24,7 @@
 				pick_rate
 			desc
 		)
-		<![CDATA[where rownum <= 2]]>	
+		<![CDATA[where rownum <= 2]]> 		
 	</select>
 	
 	<select id="runes" resultType="com.board.domain.RunesDTO">
@@ -41,7 +41,7 @@
 				pick_rate 
 			desc
 		) 
-		<![CDATA[where rownum <= 3]]>
+		<![CDATA[where rownum = 1]]>
 			
 	</select>
 	
@@ -54,78 +54,13 @@
 			rune_id = #{req}
 	</select>
 	
-	<select id="items" resultType="com.board.domain.ItemsDTO">
-		select 
-			* 
-		from 
-			items 
-		where 
-			championid = #{chamId} and lane = #{lane} and core1_pick_rate > 10
-		order by 
-			core1_pick_rate desc, core2_pick_rate desc, core3_pick_rate desc
-	</select>
 	
-	<select id="itemInfo" resultType="com.board.domain.ItemInfoDTO">
-		select 
-			* 
+	<select id="tierList" resultType="com.board.domain.TierListDTO">
+		select
+			championid, championname, championkrname, championtier, lane, win_rate, pick_rate, ban_rate, lane_win_rate 
 		from 
-			items_info 
-		where 
-			item_id = #{req}
+			test_champ_info
+		where lane= #{req}
+		order by win_rate desc
 	</select>
-	
-	<select id="counter" resultType="com.board.domain.CounterDTO">
-		select 
-			* 
-		from 
-			counter 
-		where 
-			championid = #{chamId} and lane = #{lane} and  win_rate != 100 and win_rate != 0
-		order by 
-			win_rate 
-		desc
-	</select>
-	
-	<select id="spells" resultType="com.board.domain.SpellsDTO">
-		select 
-			* 
-		from 
-			spells 
-		where 
-			championid = #{chamId} and lane = #{lane} and pick_rate > 0.5 
-		order by 
-			pick_rate 
-		desc
-	</select>
-	
-	<select id="spellInfo" resultType="com.board.domain.SpellInfoDTO">
-		select 
-			* 
-		from 
-			spells_info 
-		where 
-			spell_id = #{req}
-	</select>
-	
-	<select id="skills" resultType="com.board.domain.SkillsDTO">
-		select 
-			* 
-		from 
-			skills
-		where 
-			championid = #{chamId} and lane = #{lane} and pick_rate > 0.5 
-		order by
-			pick_rate 
-		desc
-	</select>
-	
-	<select id="skillInfo" resultType="com.board.domain.SkillInfoDTO">
-		select 
-			* 
-		from 
-			skills_info 
-		where 
-			champ_id = #{chamId} and skill_classification = #{lane}
-	</select>
-	
 </mapper>

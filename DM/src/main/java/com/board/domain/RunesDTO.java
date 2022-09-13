@@ -1,10 +1,10 @@
 package com.board.domain;
 
 public class RunesDTO {
-	private String mainRunes;
-	private String subRunes;
-	private double win_rate;
-	private double pick_rate;
+	String mainRunes;
+	String subRunes;
+	double win_rate;
+	double pick_rate;
 	
 	public String getMainRunes() {
 		return mainRunes;
