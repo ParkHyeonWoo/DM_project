@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.board.dao.HomeDAO;
+import com.board.domain.ChampsearchDTO;
 import com.board.domain.HomeDTO;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -28,15 +29,14 @@ public class HomeServiceImpl implements HomeService{
 
 	@Override
 	public List<Map<String, Object>>autoSearch(Map<String, Object> paramMap) throws Exception{
-		System.out.println(homedao.autoSearch(paramMap));
 		return homedao.autoSearch(paramMap);
 	}
 
 
 	@Override
-	public List<Object> getChampId(String champ_name_kr) {
+	public List<Map<String, Object>>  getChampId() {
 		
-		return homedao.getChampId(champ_name_kr);
+		return homedao.getChampId();
 	}
 		
 	

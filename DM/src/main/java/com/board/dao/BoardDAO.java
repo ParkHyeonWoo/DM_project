@@ -2,6 +2,7 @@ package com.board.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public interface BoardDAO {
 	public List chamDetail(String req) throws Exception;
@@ -11,4 +12,8 @@ public interface BoardDAO {
 	public List runeInfo(String req) throws Exception;
 
 	public List champ() throws Exception;
+
+	public List<Map<String, Object>> duo(Map<String, Object> paramMap);
+
+	public List<Map<String, Object>> duoNull(Map<String, Object> paramMap);
 }

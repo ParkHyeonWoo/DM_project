@@ -38,23 +38,23 @@ body{
 		<div class="container-fluid">
 			<router-link to="/" class="navbar-brand"> 
 			<a href="/controller/">
-			<img alt="Vue logo" src="resources/img/forsite/DMicon.png" style="height: 60px; margin-left:20px;">
+			<img alt="Vue logo" src="${pageContext.request.contextPath}/resources/img/forsite/DMicon.png" style="height: 60px; margin-left:20px;">
 			</a>
 			
 			</router-link>
 			<ul class="navbar-nav">
 
 				<li class="nav-item"><a class="nav-link" href="/controller/board/champ">챔피언 정보</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">듀오 시너지</a></li>
+				<li class="nav-item"><a class="nav-link" href="/controller/board/duo">듀오 시너지</a></li>
 				<li class="nav-item"><a class="nav-link" href="/controller/board/chamDetail?chamId=777">나에게 맞는 챔피언 찾기</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">밴픽 툴</a></li>
 				<li class="nav-item">
 					<div class="container-fluid">
-						<form class="d-flex">
-							<input id = "searchChampTop"  name = "CHAMP_ID" type="text"
-						placeholder="champion" aria-label="Search"
+						<form class="searchForm" action = "/controller/board/chamDetail" method = "get">
+							<input id = "searchChampHeader"  name = "chamId" type="text"
+						placeholder="챔피언 이름" aria-label="Search"
 						style="padding: 10px 50px;">
-							<button class="btn btn-outline-success" type="submit">Search</button>
+							<button type="button" id = "searchBtn" style="padding: 10px">Search</button>
 
 						</form>
 					</div>
@@ -64,7 +64,55 @@ body{
 	</nav>
 </body>
 <script>
-$('#searchChampTop').autocomplete({
+
+var champList;
+document.addEventListener("DOMContentLoaded", () =>{
+	
+	$.ajax({
+		type : "GET",
+		url : "getChampId",
+		dataType: "JSON",
+		async: false,
+		
+	
+	success : function(data) {
+		var champ;
+		champ = data;
+		champList = champ;
+
+	},
+	error : function(request, status, error){
+		console.log(error);
+		
+	}
+	});
+	return champList;
+
+
+
+
+
+
+});
+
+$('#searchBtn').on("click", function(){
+	var searchText = document.getElementById('searchChampHeader').value;
+	console.log(champList);
+	for (var i = 0; i < champList.length; i++) {
+		if (searchText == champList[i].CHAMP_NAME_KR){
+
+			var champId = parseInt(champList[i].CHAMP_ID);
+			$('#searchChampHeader').val(champId);
+			$('#searchBtn').attr('type','submit');
+			
+			
+			
+		}
+	}
+});
+
+
+$('#searchChampHeader').autocomplete({
 	source : function(request, response) { //source: 입력시 보일 목록
 	     $.ajax({
 	           url : "autoSearch"   
@@ -98,5 +146,7 @@ $('#searchChampTop').autocomplete({
       	// 아이템 선택시 실행 ui.item 이 선택된 항목을 나타내는 객체, lavel/value/idx를 가짐 
 	 }
 });
+
+
 </script>
 </html>

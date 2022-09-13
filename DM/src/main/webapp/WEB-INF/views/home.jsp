@@ -37,7 +37,8 @@ body{
 
 </style>
 </head>
-<%@include file="../views/header.jsp" %>
+<%@include file="../views/header.jsp"%>
+
 <body class="d-flex flex-column min-vh-100">
 
 	<div class="container text-center" style="margin-top: 70px;">
@@ -45,17 +46,16 @@ body{
 			<img src="resources/img/forsite/DMicon.png" style="height: 200px; margin-bottom: 20px;">
 		</a>
 		<div class="d-flex justify-content-center">
-			<form class="searchForm" name="searchForm" action = "getChampId" method = "get">
+			<form class="searchForm" action="/controller/board/chamDetail" method = "get">
 				<div class="col-auto">
 				<!-- 챔피언 이름 검색 -->
-					<input id = "searchChampMain"  name = "champName" type="text"
+					<input id = "searchChampHome"  name = "chamId" type="text"
 						placeholder="챔피언 이름" aria-label="Search"
 						style="padding: 20px 100px;">
+					<button type="button" id="searchBtnHome"style="padding: 20px">search</button>
 				</div>
 				<div class="col-auto">
-					<button type="submit" id="searchBtn"
-						style="padding: 20px">search</button>
-					<input type = "button" onClick = "checkVar()">
+					
 				</div>
 			</form>
 		</div>
@@ -74,7 +74,25 @@ body{
 
 
 
-$('#searchChampMain').autocomplete({
+
+
+$('#searchBtnHome').on("click", function(){
+	var searchTextHome = document.getElementById('searchChampHome').value;
+	for (var i = 0; i < champList.length; i++) {
+		if (searchTextHome == champList[i].CHAMP_NAME_KR){
+
+			var champId = parseInt(champList[i].CHAMP_ID);
+			console.log(champId);
+			$('#searchChampHome').val(champId);
+			$('#searchBtnHome').attr('type','submit');
+			
+			
+			
+		}
+	}
+});
+
+$('#searchChampHome').autocomplete({
 	source : function(request, response) { //source: 입력시 보일 목록
 	     $.ajax({
 	           url : "autoSearch"   
@@ -86,7 +104,7 @@ $('#searchChampMain').autocomplete({
 	                 $.map(data.resultList, function(item) {
 	                     return {
 	                    	     label : item.CHAMP_NAME_KR    	// 목록에 표시되는 값
-	                           , value : item.CHAMP_ID
+	                           , value : item.CHAMP_NAME_KR
 	                           , idx : item.CHAMP_ID // 선택 시 input창에 표시되는 값
 	                            // index
 	                     };

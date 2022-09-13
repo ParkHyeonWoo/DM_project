@@ -61,8 +61,28 @@
 			order by champ_name_kr
 	</select>
 
-	<select id="getChampId"  resultType="com.board.domain.ChampsearchDTO">
-			select champ_id from champ_basic_info
-			where champ_name_kr = '#{champ_name_kr}'
+	<select id="getChampList"  resultType="map">
+			select 
+				champ_id, champ_name_kr 
+			from
+				champ_basic_info
+	</select>
+	
+	<select id= "selectduoNULL" resultType = "com.board.domain.DuoDTO">
+	
+	select * from LANESET
+	where laneSet = #{lane}
+	and <![CDATA[pick_rate > 0.15]]>
+	order by PICK_RATE
+	desc
+	</select>
+	
+	<select id= "selectduo" resultType = "com.board.domain.DuoDTO">
+	
+	select * from LANESET
+	where laneSet = #{lane} and (championId = #{champId} or partnerId = #{champId})
+	and <![CDATA[pick_rate > 0.15]]>
+	order by PICK_RATE
+	desc
 	</select>
 </mapper>

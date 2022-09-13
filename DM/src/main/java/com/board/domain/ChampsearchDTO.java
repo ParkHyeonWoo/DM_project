@@ -1,6 +1,9 @@
 package com.board.domain;
 
-public class ChampsearchDTO {
-	int champ_id;
+import lombok.Data;
 
+@Data
+public class ChampsearchDTO {
+	private int champ_id;
+	private String champ_name_kr;
 }

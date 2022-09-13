@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.board.domain.ChampsearchDTO;
 import com.board.domain.HomeDTO;
 import com.board.service.HomeService;
 import com.google.gson.JsonArray;
@@ -40,10 +42,13 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "getChampId", method = RequestMethod.GET)
-	public List<Object> getChampId(@RequestParam String champ_name_kr, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		List<Object> champId = service.getChampId(champ_name_kr);
-		System.out.println(champId);
-		return champId;
+	public @ResponseBody List<Map<String, Object>> getChampId(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+		List<Map<String, Object>> champList = service.getChampId();
+		System.out.println("챔피언 리스트: "+ champList);
+		
+		
+		return champList;
 	}
 	
 	
@@ -51,6 +56,7 @@ public class HomeController {
 	public @ResponseBody Map<String, Object> autoSearch(@RequestParam Map<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		List<Map<String, Object>> resultList = service.autoSearch(paramMap);
 		paramMap.put("resultList", resultList);
+		System.out.println(paramMap);
 						
 		return paramMap;
 	}

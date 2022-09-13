@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.board.domain.ChampsearchDTO;
 import com.board.domain.HomeDTO;
 
 
@@ -32,9 +33,10 @@ public class HomeDAOImpl implements HomeDAO {
 
 
 	@Override
-	public List<Object> getChampId(String champ_name_kr) {
-		System.out.println(champ_name_kr);
-		return sqlSession.selectList(namespace+ ".getChampId", champ_name_kr);
+	public List<Map<String, Object>> getChampId() {
+		System.out.println(sqlSession.selectList(namespace+ ".getChampList"));
+
+		return sqlSession.selectList(namespace+ ".getChampList");
 	}
 	
 	
