@@ -2,6 +2,8 @@ package com.board.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 //import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,4 +51,17 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.selectList(namespace + ".mychampion",req);
 	}
 
+	@Override
+	public List<Map<String, Object>> duo(Map<String, Object> paramMap) {
+		System.out.println(paramMap);
+		System.out.println(sqlSession.selectList(namespace + ".selectduo", paramMap));
+		return sqlSession.selectList(namespace + ".selectduo",paramMap);
+	}
+	
+	@Override
+	public List<Map<String, Object>> duoNull(Map<String, Object> paramMap) {
+		System.out.println(paramMap);
+		System.out.println(sqlSession.selectList(namespace + ".selectduoNULL", paramMap));
+		return sqlSession.selectList(namespace + ".selectduoNULL", paramMap);
+	}
 }

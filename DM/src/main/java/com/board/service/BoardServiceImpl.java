@@ -2,6 +2,8 @@ package com.board.service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 import com.board.dao.BoardDAO;
@@ -40,5 +42,18 @@ public class BoardServiceImpl implements BoardService {
 	public List mychampion(String req) throws Exception {
 		return dao.mychampion(req);
 	}
+
+	@Override
+	public List<Map<String, Object>> duo(Map<String, Object> paramMap) {
+		System.out.println(paramMap);
+		return dao.duo(paramMap);
+	}
+	
+	@Override
+	public List<Map<String, Object>> duoNull(Map<String, Object> paramMap) {
+		System.out.println(paramMap);
+		return dao.duoNull(paramMap);
+	}
+	
 
 }
