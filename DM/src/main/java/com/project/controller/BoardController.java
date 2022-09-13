@@ -64,6 +64,16 @@ public class BoardController {
 		List list = service.champList();
 		model.addAttribute("champList", list);
 	}
+	@RequestMapping(value = "/mychamp", method = RequestMethod.GET)
+	public void mychamp(Locale locale, Model model) throws Exception {
+		
+	}
+	@RequestMapping(value = "/mychampion", method = RequestMethod.GET)
+	public void mychampion(Locale locale, Model model, HttpServletRequest req) throws Exception {
+		System.out.println(req.getParameter("championClass"));
+		List mychampion = service.mychampion(req.getParameter("championClass"));
+		model.addAttribute("mychampion", mychampion);
+	}
 	
 	@RequestMapping(value = "/tierList", method = RequestMethod.GET)
 	public void tierList(Locale locale, Model model, HttpServletRequest req) throws Exception {

@@ -44,5 +44,9 @@ public class BoardDAOImpl implements BoardDAO {
 	public List tierList(String req) throws Exception {
 		return sqlSession.selectList(namespace + ".tierList", req);
 	}
+	@Override
+	public List mychampion(String req) throws Exception {
+		return sqlSession.selectList(namespace + ".mychampion",req);
+	}
 
 }

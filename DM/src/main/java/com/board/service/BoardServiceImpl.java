@@ -36,5 +36,9 @@ public class BoardServiceImpl implements BoardService {
 	public List tierList(String req) throws Exception {
 		return dao.tierList(req);
 	}
+	@Override
+	public List mychampion(String req) throws Exception {
+		return dao.mychampion(req);
+	}
 
 }

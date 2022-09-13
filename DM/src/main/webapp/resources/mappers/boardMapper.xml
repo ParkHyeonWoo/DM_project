@@ -63,4 +63,25 @@
 		where lane= #{req}
 		order by win_rate desc
 	</select>
+<<<<<<< HEAD
+=======
+		<select id="mychampion" resultType="com.board.domain.MychampionDTO"> 
+		select
+			champ_id, champ_name, champ_name_kr, champ_stat_difficult, champ_main_role, champ_story
+		from (
+			select  
+				champ_id, champ_name, champ_name_kr, champ_stat_difficult, champ_main_role, champ_story
+			from 
+				champ_basic_info
+			where 
+				champ_main_role = #{req} 
+			and 
+				<![CDATA[champ_stat_difficult < 7]]>
+			order by  
+				champ_stat_difficult
+			)
+			where 
+			<![CDATA[rownum < 4]]>	
+		</select>
+>>>>>>> 808c64cd63a815eb2a9c06c980e0fc9c57eb188f
 </mapper>
