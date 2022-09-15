@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./index.css" />
@@ -55,7 +55,7 @@
 <body>
 	<c:forEach items="${runeInfo}" var="runeInfo">
 		<div>
-			<span>"${runeInfo.rune_id}"</span>
+			<span><img src="${pageContext.request.contextPath}/resources/img/rune/Styles/${runeInfo.rune_name}.png" /></span>
 			<p class="arrow_box">
 				"${runeInfo.rune_name_kr}"<br><br>
 				"${runeInfo.rune_desc}"<br>

@@ -43,11 +43,11 @@ body{
 			
 			</router-link>
 			<ul class="navbar-nav">
-
-				<li class="nav-item"><a class="nav-link" href="/controller/board/champ">챔피언 정보</a></li>
+				
+				<li class="nav-item"><a class="nav-link" href="/controller/board/champList">챔피언 정보</a></li>
 				<li class="nav-item"><a class="nav-link" href="/controller/board/duo">듀오 시너지</a></li>
 				<li class="nav-item"><a class="nav-link" href="/controller/board/chamDetail?chamId=777">나에게 맞는 챔피언 찾기</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">밴픽 툴</a></li>
+				<li class="nav-item"><a class="nav-link" href="/controller/board/banpick">밴픽 툴</a></li>
 				<li class="nav-item">
 					<div class="container-fluid">
 						<form class="searchForm" action = "/controller/board/chamDetail" method = "get">
@@ -87,11 +87,6 @@ document.addEventListener("DOMContentLoaded", () =>{
 	}
 	});
 	return champList;
-
-
-
-
-
 
 });
 

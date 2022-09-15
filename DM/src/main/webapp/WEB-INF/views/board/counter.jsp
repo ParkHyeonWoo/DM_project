@@ -8,23 +8,21 @@
 <head>
 <meta charset="UTF-8">
 <title>counter.jsp</title>
+<style type="text/css">
+	.counter {
+		width: 64px;
+		height: 64px;
+	}
+</style>
 </head>
 <body>
 	<c:out value="상대하기 어려운"/>
 	<c:forEach items="${counter}" begin="0" end="4" var="counter">
-		<c:set var="win" value="${counter.win_rate - 100}"/>
+		<fmt:formatNumber value="${counter.win_rate}" var="counterWin" />
+		<c:set var="win" value="${counterWin - '100'}"/>
 		<c:if test="${counter.win_rate gt win}">
-			${counter.counterChamp}<br>
+			<img class="counter" src="${pageContext.request.contextPath}/resources/img/champThumbnail/${counter.champ_name}.png" /><br>
 			적 승률: ${counter.win_rate}<br>
-			라인전 승률: ${counter.lane_win_rate}<br>
-		</c:if>
-	</c:forEach>
-	<c:out value="상대하기 쉬운"/>
-	<c:forEach items="${counter}" begin="0" end="4" var="counter">
-		<c:set var="win" value="${counter.win_rate - 100}"/>
-		<c:if test="${counter.win_rate lt win}">
-			${counter.counterChamp}<br>
-			승률: ${win}<br>
 			라인전 승률: ${counter.lane_win_rate}<br>
 		</c:if>
 	</c:forEach>

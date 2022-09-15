@@ -6,6 +6,7 @@ public class CounterDTO {
 	private int counterChamp;
 	private double win_rate;
 	private double lane_win_rate;
+	private String champ_name;
 	
 	public int getChampionId() {
 		return championId;
@@ -36,6 +37,12 @@ public class CounterDTO {
 	}
 	public void setLane_win_rate(double lane_win_rate) {
 		this.lane_win_rate = lane_win_rate;
+	}
+	public String getChamp_name() {
+		return champ_name;
+	}
+	public void setChamp_name(String champ_name) {
+		this.champ_name = champ_name;
 	}
 
 }

@@ -30,8 +30,8 @@
 			<td>
 				<c:forEach items="${items}" var="items">
 					<fmt:formatNumber value="${items.core2_pick_rate}" var="core2" />
-					<c:if test="${tmp2 ne items.core2 and core2 gt '0.5'}">
-						<c:set var="core2_item" value="${fn:split(items.core2, '|')}" />
+					<c:set var="core2_item" value="${fn:split(items.core2, '|')}" />
+					<c:if test="${tmp2 ne core2_item[1] and core2 gt '0.5'}">
 						<c:set var="tmp2" value="${core2_item[1]}"/>
 						<c:import url="/board/itemInfo?itemId=${core2_item[1]}"/>
 						승률: ${items.core2_win_rate}
@@ -42,8 +42,8 @@
 			<td>
 				<c:forEach items="${items}" var="items">
 					<fmt:formatNumber value="${items.core3_pick_rate}" var="core3" />
-					<c:if test="${tmp3 ne items.core3 and core3 gt '0.5'}">
-						<c:set var="core3_item" value="${fn:split(items.core3, '|')}" />
+					<c:set var="core3_item" value="${fn:split(items.core3, '|')}" />
+					<c:if test="${tmp3 ne core3_item[2] and core3 gt '0.5'}">
 						<c:set var="tmp3" value="${core3_item[2]}"/>
 						<c:import url="/board/itemInfo?itemId=${core3_item[2]}"/>
 						승률: ${items.core3_win_rate}

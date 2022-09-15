@@ -54,7 +54,7 @@
 <body>
 	<c:forEach items="${skillInfo}" begin="0" end="2" var="skillInfo">
 		<div>
-			<span>"${skillInfo.skill_id}"</span>
+			<span><img src="${pageContext.request.contextPath}/resources/img/champ/${skillInfo.champ_name}/${skillInfo.skill_id}.png" /></span>
 			<p class="arrow_box">
 				"${skillInfo.skill_name}"<br><br>
 				"${skillInfo.skill_desc}"<br>

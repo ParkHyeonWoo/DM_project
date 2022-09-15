@@ -34,7 +34,6 @@ public class HomeController {
 	
 	private HomeService service;
 	
-
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public  String home() throws Exception {
 		log.info("Welcome home! The client locale is kr.");
@@ -45,12 +44,11 @@ public class HomeController {
 	public @ResponseBody List<Map<String, Object>> getChampId(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		List<Map<String, Object>> champList = service.getChampId();
-		System.out.println("Ã¨ÇÇ¾ð ¸®½ºÆ®: "+ champList);
+		System.out.println("ì±”í”„ë¦¬ìŠ¤íŠ¸: "+ champList);
 		
 		
 		return champList;
 	}
-	
 	
 	@RequestMapping(value = "autoSearch", method= RequestMethod.POST)	
 	public @ResponseBody Map<String, Object> autoSearch(@RequestParam Map<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception{

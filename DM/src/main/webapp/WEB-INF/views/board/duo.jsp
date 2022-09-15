@@ -73,6 +73,8 @@ ul{
 	background-color: white;
 	margin-left: 10px;
 	margin-right: 10px;	
+	height: 70%;
+	overflow:auto;
 	
 }
 .champbar{
@@ -99,6 +101,21 @@ ul{
 	float:center;
 	margin: auto;
 	text-align: center;
+}
+
+.duobody{
+	margin-bottom: 10%;
+}
+
+.duolist{
+	height:35px;
+	margint-top:5px;
+}
+
+img{
+	float:left;
+	height:20px;
+
 }
 
 </style>
@@ -156,9 +173,10 @@ document.addEventListener("DOMContentLoaded", () =>{
 	};
 	
 	$('#TJbtn').on("click", function(){
-
+		var champNameKr;
 		var champName;
 		var partnerName;
+		var partnerNameKr;
 		var btn = document.getElementById('TJbtn').value;
 		var champId = document.getElementById('champSelect').value;
 
@@ -179,15 +197,19 @@ document.addEventListener("DOMContentLoaded", () =>{
 					for (var i = 0; i < lanelist.length ; i ++){
 						for (var j = 0; j< window.champList.length; j++){
 							if (window.champList[j].CHAMP_ID == lanelist[i].CHAMPIONID){
-								champName = champList[j].CHAMP_NAME_KR;
+								champNameKr = champList[j].CHAMP_NAME_KR;
+								champName = champList[j].CHAMP_NAME;
 								for (var k = 0; k< window.champList.length; k++){
 
 									if (window.champList[k].CHAMP_ID == lanelist[i].PARTNERID){
-										partnerName = champList[k].CHAMP_NAME_KR;
+										partnerName = champList[k].CHAMP_NAME;
+										partnerNameKr = champList[k].CHAMP_NAME_KR;
 										console.log(champName+","+partnerName)
 										$('.duobody').append('<div class = "duolist">' +
-												'<div class = "champbar"><span id ="duochamp1">'+champName+'</span></div>'+
-												'<div class = "champbar"><span id ="duochamp2">'+partnerName+'</span></div>'+
+												'<div class = "champbar"><span id ="duochamp1">' + '<img src="${pageContext.request.contextPath}/resources/img/champThumbnail/'+champName+'.png" />'+
+												'<a href="chamDetail?chamId='+lanelist[i].CHAMPIONID+'">'+champNameKr+'</a></span></div>'+
+												'<div class = "champbar"><span id ="duochamp2">'+ '<img src="${pageContext.request.contextPath}/resources/img/champThumbnail/'+partnerName+'.png" />'+
+												'<a href="chamDetail?chamId='+lanelist[i].PARTNERID+'">'+partnerNameKr+'</a></span></div>'+
 												'<div class = "ratebar1">'+
 													'<div class = "ratebar2">'+lanelist[i].WIN_RATE+'</div>'+
 													'<div class = "ratebar2">'+lanelist[i].PICK_RATE+'</div>'+
@@ -229,15 +251,19 @@ document.addEventListener("DOMContentLoaded", () =>{
 						for (var i = 0; i < lanelist.length ; i ++){
 							for (var j = 0; j< window.champList.length; j++){
 								if (window.champList[j].CHAMP_ID == lanelist[i].CHAMPIONID){
-									champName = champList[j].CHAMP_NAME_KR;
+									champNameKr = champList[j].CHAMP_NAME_KR;
+									champName = champList[j].CHAMP_NAME;
 									for (var k = 0; k< window.champList.length; k++){
 
 										if (window.champList[k].CHAMP_ID == lanelist[i].PARTNERID){
-											partnerName = champList[k].CHAMP_NAME_KR;
+											partnerName = champList[k].CHAMP_NAME;
+											partnerNameKr = champList[k].CHAMP_NAME_KR;
 											console.log(champName+","+partnerName)
 											$('.duobody').append('<div class = "duolist">' +
-													'<div class = "champbar"><span id ="duochamp1">'+champName+'</span></div>'+
-													'<div class = "champbar"><span id ="duochamp2">'+partnerName+'</span></div>'+
+													'<div class = "champbar"><span id ="duochamp1">' + '<img src="${pageContext.request.contextPath}/resources/img/champThumbnail/'+champName+'.png" />'+
+													'<a href="chamDetail?chamId='+lanelist[i].CHAMPIONID+'">'+champNameKr+'</a></span></div>'+
+													'<div class = "champbar"><span id ="duochamp2">'+ '<img src="${pageContext.request.contextPath}/resources/img/champThumbnail/'+partnerName+'.png" />'+
+													'<a href="chamDetail?chamId='+lanelist[i].PARTNERID+'">'+partnerNameKr+'</a></span></div>'+
 													'<div class = "ratebar1">'+
 														'<div class = "ratebar2">'+lanelist[i].WIN_RATE+'</div>'+
 														'<div class = "ratebar2">'+lanelist[i].PICK_RATE+'</div>'+
@@ -263,9 +289,10 @@ document.addEventListener("DOMContentLoaded", () =>{
 	
 	
 	$('#MJbtn').on("click", function(){
-
+		var champNameKr;
 		var champName;
 		var partnerName;
+		var partnerNameKr;
 		var btn = document.getElementById('MJbtn').value;
 		var champId = document.getElementById('champSelect').value;
 
@@ -286,15 +313,19 @@ document.addEventListener("DOMContentLoaded", () =>{
 					for (var i = 0; i < lanelist.length ; i ++){
 						for (var j = 0; j< window.champList.length; j++){
 							if (window.champList[j].CHAMP_ID == lanelist[i].CHAMPIONID){
-								champName = champList[j].CHAMP_NAME_KR;
+								champNameKr = champList[j].CHAMP_NAME_KR;
+								champName = champList[j].CHAMP_NAME;
 								for (var k = 0; k< window.champList.length; k++){
 
 									if (window.champList[k].CHAMP_ID == lanelist[i].PARTNERID){
-										partnerName = champList[k].CHAMP_NAME_KR;
+										partnerName = champList[k].CHAMP_NAME;
+										partnerNameKr = champList[k].CHAMP_NAME_KR;
 										console.log(champName+","+partnerName)
 										$('.duobody').append('<div class = "duolist">' +
-												'<div class = "champbar"><span id ="duochamp1">'+champName+'</span></div>'+
-												'<div class = "champbar"><span id ="duochamp2">'+partnerName+'</span></div>'+
+												'<div class = "champbar"><span id ="duochamp1">' + '<img src="${pageContext.request.contextPath}/resources/img/champThumbnail/'+champName+'.png" />'+
+												'<a href="chamDetail?chamId='+lanelist[i].CHAMPIONID+'">'+champNameKr+'</a></span></div>'+
+												'<div class = "champbar"><span id ="duochamp2">'+ '<img src="${pageContext.request.contextPath}/resources/img/champThumbnail/'+partnerName+'.png" />'+
+												'<a href="chamDetail?chamId='+lanelist[i].PARTNERID+'">'+partnerNameKr+'</a></span></div>'+
 												'<div class = "ratebar1">'+
 													'<div class = "ratebar2">'+lanelist[i].WIN_RATE+'</div>'+
 													'<div class = "ratebar2">'+lanelist[i].PICK_RATE+'</div>'+
@@ -309,6 +340,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 					}
 				},
 				error: function(errorTorwn){
+					console.log('에러발생');
 					removeBodychild()
 					$('.duobody').append('<div class = "duolist"> <div class = "nodata">해당 데이터가 없습니다.</div> </div> ');
 				}
@@ -335,15 +367,19 @@ document.addEventListener("DOMContentLoaded", () =>{
 						for (var i = 0; i < lanelist.length ; i ++){
 							for (var j = 0; j< window.champList.length; j++){
 								if (window.champList[j].CHAMP_ID == lanelist[i].CHAMPIONID){
-									champName = champList[j].CHAMP_NAME_KR;
+									champNameKr = champList[j].CHAMP_NAME_KR;
+									champName = champList[j].CHAMP_NAME;
 									for (var k = 0; k< window.champList.length; k++){
 
 										if (window.champList[k].CHAMP_ID == lanelist[i].PARTNERID){
-											partnerName = champList[k].CHAMP_NAME_KR;
+											partnerName = champList[k].CHAMP_NAME;
+											partnerNameKr = champList[k].CHAMP_NAME_KR;
 											console.log(champName+","+partnerName)
 											$('.duobody').append('<div class = "duolist">' +
-													'<div class = "champbar"><span id ="duochamp1">'+champName+'</span></div>'+
-													'<div class = "champbar"><span id ="duochamp2">'+partnerName+'</span></div>'+
+													'<div class = "champbar"><span id ="duochamp1">' + '<img src="${pageContext.request.contextPath}/resources/img/champThumbnail/'+champName+'.png" />'+
+													'<a href="chamDetail?chamId='+lanelist[i].CHAMPIONID+'">'+champNameKr+'</a></span></div>'+
+													'<div class = "champbar"><span id ="duochamp2">'+ '<img src="${pageContext.request.contextPath}/resources/img/champThumbnail/'+partnerName+'.png" />'+
+													'<a href="chamDetail?chamId='+lanelist[i].PARTNERID+'">'+partnerNameKr+'</a></span></div>'+
 													'<div class = "ratebar1">'+
 														'<div class = "ratebar2">'+lanelist[i].WIN_RATE+'</div>'+
 														'<div class = "ratebar2">'+lanelist[i].PICK_RATE+'</div>'+
@@ -358,6 +394,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 						}
 					},
 			error: function(errorTorwn){
+				console.log('에러발생');
 				removeBodychild()
 				$('.duobody').append('<div class = "duolist"> <div class = "nodata">해당 데이터가 없습니다.</div> </div> ');
 			}
@@ -367,9 +404,10 @@ document.addEventListener("DOMContentLoaded", () =>{
 	});
 	
 	$('#ASbtn').on("click", function(){
-
+		var champNameKr;
 		var champName;
 		var partnerName;
+		var partnerNameKr;
 		var btn = document.getElementById('ASbtn').value;
 		var champId = document.getElementById('champSelect').value;
 
@@ -390,15 +428,19 @@ document.addEventListener("DOMContentLoaded", () =>{
 					for (var i = 0; i < lanelist.length ; i ++){
 						for (var j = 0; j< window.champList.length; j++){
 							if (window.champList[j].CHAMP_ID == lanelist[i].CHAMPIONID){
-								champName = champList[j].CHAMP_NAME_KR;
+								champNameKr = champList[j].CHAMP_NAME_KR;
+								champName = champList[j].CHAMP_NAME;
 								for (var k = 0; k< window.champList.length; k++){
 
 									if (window.champList[k].CHAMP_ID == lanelist[i].PARTNERID){
-										partnerName = champList[k].CHAMP_NAME_KR;
+										partnerName = champList[k].CHAMP_NAME;
+										partnerNameKr = champList[k].CHAMP_NAME_KR;
 										console.log(champName+","+partnerName)
 										$('.duobody').append('<div class = "duolist">' +
-												'<div class = "champbar"><span id ="duochamp1">'+champName+'</span></div>'+
-												'<div class = "champbar"><span id ="duochamp2">'+partnerName+'</span></div>'+
+												'<div class = "champbar"><span id ="duochamp1">' + '<img src="${pageContext.request.contextPath}/resources/img/champThumbnail/'+champName+'.png" />'+
+												'<a href="chamDetail?chamId='+lanelist[i].CHAMPIONID+'">'+champNameKr+'</a></span></div>'+
+												'<div class = "champbar"><span id ="duochamp2">'+ '<img src="${pageContext.request.contextPath}/resources/img/champThumbnail/'+partnerName+'.png" />'+
+												'<a href="chamDetail?chamId='+lanelist[i].PARTNERID+'">'+partnerNameKr+'</a></span></div>'+
 												'<div class = "ratebar1">'+
 													'<div class = "ratebar2">'+lanelist[i].WIN_RATE+'</div>'+
 													'<div class = "ratebar2">'+lanelist[i].PICK_RATE+'</div>'+
@@ -440,15 +482,19 @@ document.addEventListener("DOMContentLoaded", () =>{
 						for (var i = 0; i < lanelist.length ; i ++){
 							for (var j = 0; j< window.champList.length; j++){
 								if (window.champList[j].CHAMP_ID == lanelist[i].CHAMPIONID){
-									champName = champList[j].CHAMP_NAME_KR;
+									champNameKr = champList[j].CHAMP_NAME_KR;
+									champName = champList[j].CHAMP_NAME;
 									for (var k = 0; k< window.champList.length; k++){
 
 										if (window.champList[k].CHAMP_ID == lanelist[i].PARTNERID){
-											partnerName = champList[k].CHAMP_NAME_KR;
+											partnerName = champList[k].CHAMP_NAME;
+											partnerNameKr = champList[k].CHAMP_NAME_KR;
 											console.log(champName+","+partnerName)
 											$('.duobody').append('<div class = "duolist">' +
-													'<div class = "champbar"><span id ="duochamp1">'+champName+'</span></div>'+
-													'<div class = "champbar"><span id ="duochamp2">'+partnerName+'</span></div>'+
+													'<div class = "champbar"><span id ="duochamp1">' + '<img src="${pageContext.request.contextPath}/resources/img/champThumbnail/'+champName+'.png" />'+
+													'<a href="chamDetail?chamId='+lanelist[i].CHAMPIONID+'">'+champNameKr+'</a></span></div>'+
+													'<div class = "champbar"><span id ="duochamp2">'+ '<img src="${pageContext.request.contextPath}/resources/img/champThumbnail/'+partnerName+'.png" />'+
+													'<a href="chamDetail?chamId='+lanelist[i].PARTNERID+'">'+partnerNameKr+'</a></span></div>'+
 													'<div class = "ratebar1">'+
 														'<div class = "ratebar2">'+lanelist[i].WIN_RATE+'</div>'+
 														'<div class = "ratebar2">'+lanelist[i].PICK_RATE+'</div>'+

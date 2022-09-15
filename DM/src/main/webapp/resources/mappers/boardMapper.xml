@@ -3,13 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.board.mappers.board">
-	<select id="champList" resultType="com.board.domain.ChampListDTO">
+	<select id="champ" resultType="com.board.domain.MainDTO">
 		select 
 			champ_id, champ_name, champ_name_kr
-		from
+		from 
 			champ_basic_info
-		order by champ_name_kr
 	</select>
+	
 	<select id="chamDetail" resultType="com.board.domain.ChamDetailDTO">
 		select
 			championid, championname, championkrname, lane, win_rate, pick_rate, ban_rate
@@ -24,7 +24,7 @@
 				pick_rate
 			desc
 		)
-		<![CDATA[where rownum <= 2]]> 		
+		<![CDATA[where rownum <= 2]]>	
 	</select>
 	
 	<select id="runes" resultType="com.board.domain.RunesDTO">
@@ -41,7 +41,7 @@
 				pick_rate 
 			desc
 		) 
-		<![CDATA[where rownum = 1]]>
+		<![CDATA[where rownum <= 3]]>
 			
 	</select>
 	
@@ -54,15 +54,13 @@
 			rune_id = #{req}
 	</select>
 	
-<<<<<<< HEAD
-=======
 	<select id="items" resultType="com.board.domain.ItemsDTO">
 		select 
 			* 
 		from 
 			items 
 		where 
-			championid = #{chamId} and lane = #{lane} and core1_pick_rate > 10
+			championid = #{chamId} and lane = #{lane} and <![CDATA[core1_pick_rate > 10]]>
 		order by 
 			core1_pick_rate desc, core2_pick_rate desc, core3_pick_rate desc
 	</select>
@@ -79,9 +77,13 @@
 	
 	<select id="counter" resultType="com.board.domain.CounterDTO">
 		select 
-			* 
+			championid, lane, counterchamp, win_rate, lane_win_rate, champ_name 
 		from 
-			counter 
+			counter
+		inner join 
+			champ_basic_info
+		on 
+			counter.counterchamp = champ_basic_info.champ_id 
 		where 
 			championid = #{chamId} and lane = #{lane} and  win_rate != 100 and win_rate != 0
 		order by 
@@ -95,7 +97,7 @@
 		from 
 			spells 
 		where 
-			championid = #{chamId} and lane = #{lane} and pick_rate > 0.5 
+			championid = #{chamId} and lane = #{lane} and <![CDATA[pick_rate > 0.5]]>
 		order by 
 			pick_rate 
 		desc
@@ -116,74 +118,97 @@
 		from 
 			skills
 		where 
-			championid = #{chamId} and lane = #{lane} and pick_rate > 0.5 
+			championid = #{chamId} and lane = #{lane} and <![CDATA[pick_rate > 0.5]]>
 		order by
 			pick_rate 
 		desc
 	</select>
->>>>>>> 5b30d01a28235c27647c42d16cdc9635078d97d7
+	
+	<select id="skillInfo" resultType="com.board.domain.SkillInfoDTO">
+		select 
+			* 
+		from 
+			skills_info 
+		where 
+			champ_id = #{chamId} and skill_classification = #{lane}
+	</select>
+	
+	<select id="mychampion" resultType="com.board.domain.MychampionDTO"> 
+	select
+		champ_id, champ_name, champ_name_kr, champ_stat_difficult, champ_main_role, champ_story
+	from (
+		select  
+			champ_id, champ_name, champ_name_kr, champ_stat_difficult, champ_main_role, champ_story
+		from 
+			champ_basic_info
+		where 
+			champ_main_role = #{req} 
+		and 
+			<![CDATA[champ_stat_difficult < 7]]>
+		order by  
+			champ_stat_difficult
+		)
+		where 
+		<![CDATA[rownum < 4]]>	
+	</select>
+	
+	<select id="searchChamp" parameterType="map" resultType="map">
+		select 
+			champ_id, champ_name_kr, champ_name from champ_basic_info
+		where 
+			champ_name_kr LIKE '%'|| #{value} || '%'
+		order by 
+			champ_name_kr
+	</select>
+
+	<select id="getChampList"  resultType="map">
+			select 
+				champ_id, champ_name_kr, champ_name 
+			from
+				champ_basic_info
+	</select>
+	
+	<select id= "selectduoNULL" resultType = "com.board.domain.DuoDTO">
+	select 
+		* 
+	from 
+		LANE_SET
+	where 
+		laneSet = #{lane} and <![CDATA[pick_rate > 0.15]]>
+	order by 
+		PICK_RATE
+	desc
+	</select>
+	
+	<select id= "selectduo" resultType = "com.board.domain.DuoDTO">
+	select 
+		* 
+	from 
+		LANE_SET
+	where 
+		laneSet = #{lane} and (championId = #{champId} or partnerId = #{champId}) and <![CDATA[pick_rate > 0.15]]>
+	order by 
+		PICK_RATE
+	desc
+	</select>
 	
 	<select id="tierList" resultType="com.board.domain.TierListDTO">
 		select
 			championid, championname, championkrname, championtier, lane, win_rate, pick_rate, ban_rate, lane_win_rate 
 		from 
 			test_champ_info
-		where lane= #{req}
-		order by win_rate desc
-	</select>
-<<<<<<< HEAD
-=======
-		<select id="mychampion" resultType="com.board.domain.MychampionDTO"> 
-		select
-			champ_id, champ_name, champ_name_kr, champ_stat_difficult, champ_main_role, champ_story
-		from (
-			select  
-				champ_id, champ_name, champ_name_kr, champ_stat_difficult, champ_main_role, champ_story
-			from 
-				champ_basic_info
-			where 
-				champ_main_role = #{req} 
-			and 
-				<![CDATA[champ_stat_difficult < 7]]>
-			order by  
-				champ_stat_difficult
-			)
-			where 
-			<![CDATA[rownum < 4]]>	
-		</select>
-<<<<<<< HEAD
->>>>>>> 808c64cd63a815eb2a9c06c980e0fc9c57eb188f
-=======
-	
-		<select id="searchChamp" parameterType="map" resultType="map">
-			select champ_id, champ_name_kr, champ_name from champ_basic_info
-			where champ_name_kr LIKE '%'|| #{value} || '%'
-			order by champ_name_kr
-	</select>
-
-	<select id="getChampList"  resultType="map">
-			select 
-				champ_id, champ_name_kr 
-			from
-				champ_basic_info
+		where 
+			lane= #{req}
+		order by 
+			win_rate desc
 	</select>
 	
-	<select id= "selectduoNULL" resultType = "com.board.domain.DuoDTO">
-	
-	select * from LANESET
-	where laneSet = #{lane}
-	and <![CDATA[pick_rate > 0.15]]>
-	order by PICK_RATE
-	desc
+	<select id="champList" resultType="com.board.domain.ChampListDTO">
+		select 
+			champ_id, champ_name, champ_name_kr
+		from
+			champ_basic_info
+		order by 
+			champ_name_kr
 	</select>
-	
-	<select id= "selectduo" resultType = "com.board.domain.DuoDTO">
-	
-	select * from LANESET
-	where laneSet = #{lane} and (championId = #{champId} or partnerId = #{champId})
-	and <![CDATA[pick_rate > 0.15]]>
-	order by PICK_RATE
-	desc
-	</select>
->>>>>>> 5b30d01a28235c27647c42d16cdc9635078d97d7
 </mapper>

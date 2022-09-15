@@ -55,7 +55,7 @@
 <body>
 	<c:forEach items="${itemInfo}" var="itemInfo">
 		<div>
-			<span>"${itemInfo.item_id}"</span>
+			<span><img src="${pageContext.request.contextPath}/resources/img/item/${itemInfo.item_id}.png" /></span>
 			<p class="arrow_box">
 				"${itemInfo.item_name}"<br><br>
 				"${itemInfo.item_desc}"<br>

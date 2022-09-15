@@ -10,21 +10,30 @@ public interface BoardDAO {
 	public List runes(HashMap<String, Object> map) throws Exception;
 	
 	public List runeInfo(String req) throws Exception;
+	
+	public List items(HashMap<String, Object> map) throws Exception;
+	
+	public List itemInfo(String req) throws Exception;
 
-	public List champList() throws Exception;
+	public List champ() throws Exception;
 
-<<<<<<< HEAD
-	public List tierList(String req) throws Exception;
-=======
+	public List counter(HashMap<String, Object> map) throws Exception;
+
+	public List spells(HashMap<String, Object> map) throws Exception;
+
+	public List spellInfo(String req) throws Exception;
+
+	public List skills(HashMap<String, Object> map) throws Exception;
+
 	public List skillInfo(HashMap<String, Object> map) throws Exception;
 
 	public List mychampion(String req) throws Exception;
-<<<<<<< HEAD
->>>>>>> 808c64cd63a815eb2a9c06c980e0fc9c57eb188f
-=======
+	
+	public List champList() throws Exception;
+
+	public List tierList(String req) throws Exception;
 	
 	public List<Map<String, Object>> duo(Map<String, Object> paramMap);
 
 	public List<Map<String, Object>> duoNull(Map<String, Object> paramMap);
->>>>>>> 5b30d01a28235c27647c42d16cdc9635078d97d7
 }

@@ -54,7 +54,7 @@
 <body>
 	<c:forEach items="${spellInfo}" var="spellInfo">
 		<div>
-			<span>"${spellInfo.spell_id}"</span>
+			<span><img src="${pageContext.request.contextPath}/resources/img/spell/${spellInfo.spell_name}.png" /></span>
 			<p class="arrow_box">
 				"${spellInfo.spell_name_kr}"<br><br>
 				"${spellInfo.spell_desc}"<br>
